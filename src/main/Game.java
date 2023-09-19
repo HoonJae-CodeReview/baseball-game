@@ -4,6 +4,7 @@ import main.utils.NumbersUtils;
 import main.view.View;
 
 import static main.utils.StringUtils.parseToNumbers;
+import static main.validators.ContinueOrExitValidator.validateContinueOrExitResponse;
 
 public class Game {
 
@@ -57,19 +58,21 @@ public class Game {
 
     private void continueOrExit() {
         view.requestExit();
+        String inputString = "";
 
         while (true) {
-            String inputString = view.input();
-            if (inputString.equals("1")) {
-                return;
+            inputString = view.input();
+            try {
+                validateContinueOrExitResponse(inputString);
+                break;
             }
-            else if (inputString.equals("2")) {
-                running = false;
-                return;
+            catch (IllegalArgumentException e) {
+                view.print(e);
             }
-            else {
-                view.print("[!] 제시된 항목에서 선택해주세요.");
-            }
+        }
+
+        if (inputString.equals("2")) {
+            running = false;
         }
     }
 }
