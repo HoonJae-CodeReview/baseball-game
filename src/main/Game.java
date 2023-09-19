@@ -9,23 +9,20 @@ public class Game {
 
     private final View view;
     private Numbers answer;
+    private boolean running = true;
 
     public Game(View view) {
         this.view = view;
     }
 
     public void run() {
-        while (true) {
-            playGame();
-
-            view.requestExit();
-
-            String inputString = view.input();
-            if (inputString.equals("2")) {
-                return;
+        while (running) {
+            try {
+                playGame();
+                continueOrExit();
             }
-            if (!inputString.equals("1")) {
-                throw new IllegalArgumentException("제시된 항목에서 선택해주세요");
+            catch (IllegalArgumentException e) {
+                view.print(e);
             }
         }
     }
@@ -58,4 +55,21 @@ public class Game {
         answer = new Numbers(randomizedNumbers);
     }
 
+    private void continueOrExit() {
+        view.requestExit();
+
+        while (true) {
+            String inputString = view.input();
+            if (inputString.equals("1")) {
+                return;
+            }
+            else if (inputString.equals("2")) {
+                running = false;
+                return;
+            }
+            else {
+                view.print("[!] 제시된 항목에서 선택해주세요.");
+            }
+        }
+    }
 }
