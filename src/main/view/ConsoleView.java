@@ -51,8 +51,7 @@ public class ConsoleView implements View {
             stringBuilder.append("볼 ");
         }
         if (outCount == Numbers.LENGTH) {
-            stringBuilder.append(outCount);
-            stringBuilder.append("아웃 ");
+            stringBuilder.append("낫싱 ");
         }
         System.out.println(stringBuilder);
     }
