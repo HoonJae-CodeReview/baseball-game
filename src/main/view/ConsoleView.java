@@ -58,12 +58,12 @@ public class ConsoleView implements View {
 
     @Override
     public void requestNumber() {
-        print("숫자를 입력해 주세요 : ");
+        System.out.print("숫자를 입력해 주세요 : ");
     }
 
     @Override
     public void congratulate() {
-        System.out.printf("%d개의 숫자를 모두 맞히셨습니다! 게임 종료", Numbers.LENGTH);
+        System.out.printf("%d개의 숫자를 모두 맞히셨습니다! 게임 종료\n", Numbers.LENGTH);
     }
 
     @Override
