@@ -24,6 +24,14 @@ public class Numbers {
         return balls;
     }
 
+    public Score getScore(Numbers answerNumbers) {
+        int strikeCount = getCountOfSameNumberAtSameIndex(answerNumbers);
+        int strikeOrBallCount = getCountOfSameNumberAtAnyWhere(answerNumbers);
+        int ballCount = strikeOrBallCount - strikeCount;
+        int outCount = LENGTH - strikeOrBallCount;
+        return new Score(strikeCount, ballCount, outCount);
+    }
+
     // Strike
     public int getCountOfSameNumberAtSameIndex(Numbers anotherNumbers) {
         int result = 0;
