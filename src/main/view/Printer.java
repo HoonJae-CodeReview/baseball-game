@@ -9,4 +9,7 @@ public interface Printer {
     void print(StringTokenizer stringTokenizer);
     void print(Exception e);
     void print(Score score);
+    void requestNumber();
+    void congratulate();
+    void requestExit();
 }
