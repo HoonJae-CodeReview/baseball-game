@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Numbers {
+
+    public static final int LENGTH = 3;
+
     private final int[] numbers;
     private final Map<Integer, Integer> numberCounts;
 
