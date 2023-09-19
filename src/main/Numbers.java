@@ -3,6 +3,8 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 
+import static main.validators.NumbersValidator.*;
+
 public class Numbers {
 
     public static final int LENGTH = 3;
@@ -11,6 +13,8 @@ public class Numbers {
     private final Map<Integer, Integer> numberCounts;
 
     public Numbers(int[] values) {
+        validateNumbersLength(values);
+        validateNumbersRange(values);
         numbers = values;
         numberCounts = getNumberCountsFromArray(values);
     }
