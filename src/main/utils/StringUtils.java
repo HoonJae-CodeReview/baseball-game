@@ -4,7 +4,7 @@ public final class StringUtils {
 
     private StringUtils() {}
 
-    int[] parseToNumbers(String stringValue) {
+    public static int[] parseToNumbers(String stringValue) {
         int length = stringValue.length();
         int[] numbers = new int[length];
         for (int i=0; i<length; i++) {
