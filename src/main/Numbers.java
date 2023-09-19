@@ -24,4 +24,15 @@ public class Numbers {
         return balls;
     }
 
+    // Strike
+    public int getCountOfSameNumberAtSameIndex(Numbers anotherNumbers) {
+        int result = 0;
+        for (int i=0; i<LENGTH; i++) {
+            System.out.println(numbers[i]+","+anotherNumbers.numbers[i]);
+            if (numbers[i] == anotherNumbers.numbers[i]) {
+                result++;
+            }
+        }
+        return result;
+    }
 }
