@@ -8,4 +8,16 @@ public class Score {
         this.ballCount = ballCount;
         this.outCount = outCount;
     }
+
+    public int getStrikeCount() {
+        return strikeCount;
+    }
+
+    public int getBallCount() {
+        return ballCount;
+    }
+
+    public int getOutCount() {
+        return outCount;
+    }
 }
