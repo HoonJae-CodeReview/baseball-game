@@ -18,13 +18,8 @@ public class Game {
 
     public void run() {
         while (running) {
-            try {
-                playGame();
-                continueOrExit();
-            }
-            catch (IllegalArgumentException e) {
-                view.print(e);
-            }
+            playGame();
+            continueOrExit();
         }
     }
 
@@ -33,11 +28,7 @@ public class Game {
         randomizeAnswer();
 
         while (true) {
-            view.requestNumber();
-
-            String inputString = view.input();
-            int[] inputNumbers = parseToNumbers(inputString);
-            Numbers numbers = new Numbers(inputNumbers);
+            Numbers numbers = tryToMakeNumbersByInput();
 
             Score score = numbers.getScore(answer);
             int strikeCount = score.getStrikeCount();
@@ -54,6 +45,20 @@ public class Game {
         int numberLength = Numbers.LENGTH;
         int[] randomizedNumbers = NumbersUtils.getRandomizedNumbers(numberLength);
         answer = new Numbers(randomizedNumbers);
+    }
+
+    private Numbers tryToMakeNumbersByInput() {
+        while (true) {
+            view.requestNumber();
+            String inputString = view.input();
+            int[] inputNumbers = parseToNumbers(inputString);
+            try {
+                return new Numbers(inputNumbers);
+            }
+            catch (Exception e) {
+                view.print(e);
+            }
+        }
     }
 
     private void continueOrExit() {
