@@ -32,12 +32,12 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void print(Exception e) {
+    public void printError(Exception e) {
         System.out.println("[!] " + e.getMessage());
     }
 
     @Override
-    public void print(Score score) {
+    public void printScore(Score score) {
         StringBuilder stringBuilder = new StringBuilder();
         int strikeCount = score.getStrikeCount();
         int ballCount = score.getBallCount();

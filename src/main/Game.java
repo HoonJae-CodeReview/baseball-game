@@ -38,7 +38,7 @@ public class Game {
                 return;
             }
 
-            view.print(score);
+            view.printScore(score);
         }
     }
 
@@ -57,7 +57,7 @@ public class Game {
                 return new Numbers(inputNumbers);
             }
             catch (Exception e) {
-                view.print(e);
+                view.printError(e);
             }
         }
     }
@@ -73,7 +73,7 @@ public class Game {
                 break;
             }
             catch (IllegalArgumentException e) {
-                view.print(e);
+                view.printError(e);
             }
         }
 
