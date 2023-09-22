@@ -3,7 +3,7 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 
-import static main.validators.NumbersValidator.*;
+import main.validators.NumbersValidator;
 
 public class Numbers {
 
@@ -13,8 +13,8 @@ public class Numbers {
     private final Map<Integer, Integer> numberCounts;
 
     public Numbers(int[] values) {
-        validateNumbersLength(values);
-        validateNumbersRange(values);
+        NumbersValidator.validateNumbersLength(values);
+        NumbersValidator.validateNumbersRange(values);
         numbers = values;
         numberCounts = getNumberCountsFromArray(values);
     }

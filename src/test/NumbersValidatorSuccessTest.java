@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static main.validators.NumbersValidator.validateNumbersRange;
+import main.validators.NumbersValidator;
 
 public class NumbersValidatorSuccessTest {
 
@@ -23,6 +23,6 @@ public class NumbersValidatorSuccessTest {
         for (int i=0; i<length; i++) {
             numbers[i] = Integer.parseInt(numbersString[i]);
         }
-        validateNumbersRange(numbers);
+        NumbersValidator.validateNumbersRange(numbers);
     }
 }

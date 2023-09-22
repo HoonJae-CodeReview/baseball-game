@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static main.validators.NumbersValidator.validateNumbersRange;
+import main.validators.NumbersValidator;
 
 public class NumbersValidatorFailTest {
 
@@ -26,7 +26,7 @@ public class NumbersValidatorFailTest {
             numbers[i] = Integer.parseInt(numbersString[i]);
         }
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            validateNumbersRange(numbers);
+            NumbersValidator.validateNumbersRange(numbers);
         });
     }
 }

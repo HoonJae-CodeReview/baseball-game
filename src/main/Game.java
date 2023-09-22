@@ -2,9 +2,8 @@ package main;
 
 import main.utils.NumbersUtils;
 import main.view.View;
-
-import static main.utils.StringUtils.parseToNumbers;
-import static main.validators.ContinueOrExitValidator.validateContinueOrExitResponse;
+import main.utils.StringUtils;
+import main.validators.ContinueOrExitValidator;
 
 public class Game {
 
@@ -51,7 +50,7 @@ public class Game {
         while (true) {
             view.requestNumber();
             String inputString = view.input();
-            int[] inputNumbers = parseToNumbers(inputString);
+            int[] inputNumbers = StringUtils.parseToNumbers(inputString);
             try {
                 return new Numbers(inputNumbers);
             }
@@ -68,7 +67,7 @@ public class Game {
         while (true) {
             inputString = view.input();
             try {
-                validateContinueOrExitResponse(inputString);
+                ContinueOrExitValidator.validateContinueOrExitResponse(inputString);
                 break;
             }
             catch (IllegalArgumentException e) {
