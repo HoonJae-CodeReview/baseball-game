@@ -1,13 +1,14 @@
 package main.utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NumbersUtils {
     
     private NumbersUtils() {}
 
-    public static int[] getRandomizedNumbers(int length) {
-        int[] result = new int[length];
+    public static List<Integer> getRandomizedNumbers(int length) {
+        List<Integer> result = new ArrayList<>();
 
         ArrayList<Integer> numbers = new ArrayList<>();
         for (int i=1; i<=9; i++) {
@@ -19,7 +20,7 @@ public class NumbersUtils {
             int randomIndex = (int) Math.floor(Math.random() * leftNumbersCount);
             int randomNumber = numbers.get(randomIndex);
             numbers.remove(randomIndex);
-            result[i] = randomNumber;
+            result.add(randomNumber);
         }
         return result;
     }

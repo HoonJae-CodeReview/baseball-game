@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import main.utils.NumbersUtils;
 
+import java.util.List;
+
 public class GetRandomizedNumbersTest {
 
     @Test()
@@ -14,7 +16,7 @@ public class GetRandomizedNumbersTest {
         final int repeatCount = 100000;
         for (int i=0; i<repeatCount; i++) {
             int length = 1 + (int) Math.round(Math.random() * 8);
-            int[] randomizedNumbers = NumbersUtils.getRandomizedNumbers(length);
+            List<Integer> randomizedNumbers = NumbersUtils.getRandomizedNumbers(length);
             int[] numbersCount = new int[10];
             for (int number : randomizedNumbers) {
                 numbersCount[number]++;

@@ -1,6 +1,7 @@
 package main;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import main.validators.NumbersValidator;
@@ -9,17 +10,17 @@ public class Numbers {
 
     public static final int LENGTH = 3;
 
-    private final int[] numbers;
+    private final List<Integer> numbers;
     private final Map<Integer, Integer> numberCounts;
 
-    public Numbers(int[] values) {
+    public Numbers(List<Integer> values) {
         NumbersValidator.validateNumbersLength(values);
         NumbersValidator.validateNumbersRange(values);
         numbers = values;
         numberCounts = getNumberCountsFromArray(values);
     }
 
-    private HashMap<Integer, Integer> getNumberCountsFromArray(int[] values) {
+    private HashMap<Integer, Integer> getNumberCountsFromArray(List<Integer> values) {
         HashMap<Integer, Integer> balls = new HashMap<>();
         for (int value : values){
             int numberCountOfCurrentValue = balls.getOrDefault(value, 0);
@@ -40,7 +41,9 @@ public class Numbers {
     public int getCountOfSameNumberAtSameIndex(Numbers anotherNumbers) {
         int result = 0;
         for (int i=0; i<LENGTH; i++) {
-            if (numbers[i] == anotherNumbers.numbers[i]) {
+            int number = numbers.get(i);
+            int anotherNumber = anotherNumbers.numbers.get(i);
+            if (number == anotherNumber) {
                 result++;
             }
         }

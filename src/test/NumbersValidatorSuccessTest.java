@@ -6,6 +6,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import main.validators.NumbersValidator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NumbersValidatorSuccessTest {
 
     @ParameterizedTest()
@@ -18,10 +21,10 @@ public class NumbersValidatorSuccessTest {
     @DisplayName("Numbers 입력에 대한 경계값을 허용한다.")
     void boundarySuccessTest(String stringValue) {
         String[] numbersString = stringValue.split(" ");
-        int length = numbersString.length;
-        int[] numbers = new int[length];
-        for (int i=0; i<length; i++) {
-            numbers[i] = Integer.parseInt(numbersString[i]);
+        List<Integer> numbers = new ArrayList<>();
+        for (String numberString : numbersString) {
+            int number = Integer.parseInt(numberString);
+            numbers.add(number);
         }
         NumbersValidator.validateNumbersRange(numbers);
     }

@@ -7,6 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import main.validators.NumbersValidator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NumbersValidatorFailTest {
 
     @ParameterizedTest()
@@ -21,9 +24,10 @@ public class NumbersValidatorFailTest {
     void boundarySuccessTest(String stringValue) {
         String[] numbersString = stringValue.split(" ");
         int length = numbersString.length;
-        int[] numbers = new int[length];
+        List<Integer> numbers = new ArrayList<>();
         for (int i=0; i<length; i++) {
-            numbers[i] = Integer.parseInt(numbersString[i]);
+            int number = Integer.parseInt(numbersString[i]);
+            numbers.add(number);
         }
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             NumbersValidator.validateNumbersRange(numbers);

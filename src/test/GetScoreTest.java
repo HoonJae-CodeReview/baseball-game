@@ -7,6 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import main.Numbers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GetScoreTest {
 
     @ParameterizedTest()
@@ -26,8 +29,8 @@ public class GetScoreTest {
     @DisplayName("올바른 Strike의 수를 셀 수 있다.")
     void getStrikeCountTest(String numbersString1, String numbersString2, int expected){
         // given
-        Numbers numbers1 = new Numbers(getArrayValueOf(numbersString1));
-        Numbers numbers2 = new Numbers(getArrayValueOf(numbersString2));
+        Numbers numbers1 = new Numbers(getListOf(numbersString1));
+        Numbers numbers2 = new Numbers(getListOf(numbersString2));
 
         // when
         int strikeCount = numbers1.getCountOfSameNumberAtSameIndex(numbers2);
@@ -51,8 +54,8 @@ public class GetScoreTest {
     @DisplayName("올바른 Ball의 수를 셀 수 있다.")
     void getBallCountTest(String numbersString1, String numbersString2, int expected){
         // given
-        Numbers numbers1 = new Numbers(getArrayValueOf(numbersString1));
-        Numbers numbers2 = new Numbers(getArrayValueOf(numbersString2));
+        Numbers numbers1 = new Numbers(getListOf(numbersString1));
+        Numbers numbers2 = new Numbers(getListOf(numbersString2));
 
         // when
         int strikeCount = numbers1.getCountOfSameNumberAtSameIndex(numbers2);
@@ -63,10 +66,11 @@ public class GetScoreTest {
         Assertions.assertEquals(expected, ballCount);
     }
 
-    int[] getArrayValueOf(String stringValue) {
-        int[] result = new int[Numbers.LENGTH];
+    List<Integer> getListOf(String stringValue) {
+        List<Integer> result = new ArrayList<>();
         for (int i=0; i<Numbers.LENGTH; i++) {
-            result[i] = stringValue.charAt(i) - '0';
+            int value = stringValue.charAt(i) - '0';
+            result.add(value);
         }
         return result;
     }

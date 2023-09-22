@@ -5,6 +5,8 @@ import main.view.View;
 import main.utils.StringUtils;
 import main.validators.ContinueOrExitValidator;
 
+import java.util.List;
+
 public class Game {
 
     private final View view;
@@ -42,7 +44,7 @@ public class Game {
 
     private void randomizeAnswer() {
         int numberLength = Numbers.LENGTH;
-        int[] randomizedNumbers = NumbersUtils.getRandomizedNumbers(numberLength);
+        List<Integer> randomizedNumbers = NumbersUtils.getRandomizedNumbers(numberLength);
         answer = new Numbers(randomizedNumbers);
     }
 
@@ -50,7 +52,7 @@ public class Game {
         while (true) {
             view.requestNumber();
             String inputString = view.input();
-            int[] inputNumbers = StringUtils.parseToNumbers(inputString);
+            List<Integer> inputNumbers = StringUtils.parseToNumbers(inputString);
             try {
                 return new Numbers(inputNumbers);
             }
