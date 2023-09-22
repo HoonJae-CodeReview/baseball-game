@@ -52,14 +52,17 @@ public class Numbers {
 
     // Ball or Strike
     public int getCountOfSameNumberAtAnyWhere(Numbers anotherNumbers) {
-        Map<Integer, Integer> anotherNumbersNumberCounts = anotherNumbers.numberCounts;
         int result = 0;
         for (Map.Entry<Integer, Integer> numberCount : numberCounts.entrySet()) {
             int number = numberCount.getKey();
             int count = numberCount.getValue();
-            int anotherNumbersCurrentNumberCount = anotherNumbersNumberCounts.getOrDefault(number, 0);
+            int anotherNumbersCurrentNumberCount = anotherNumbers.getCountOfNumber(number);
             result += Math.min(count, anotherNumbersCurrentNumberCount);
         }
         return result;
+    }
+
+    public int getCountOfNumber(int number) {
+        return numberCounts.getOrDefault(number, 0);
     }
 }
