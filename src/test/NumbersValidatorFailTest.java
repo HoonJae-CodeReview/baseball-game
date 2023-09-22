@@ -15,8 +15,7 @@ public class NumbersValidatorFailTest {
     @ParameterizedTest()
     @CsvSource(
             value = {
-                    "0 1 2",
-                    "8 9 10",
+                    "0 10",
             },
             delimiter = ':'
     )
