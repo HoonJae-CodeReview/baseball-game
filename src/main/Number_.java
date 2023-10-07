@@ -20,4 +20,12 @@ public class Number_ {
             throw new IllegalArgumentException("올바른 숫자 값의 범위는 " + MIN_VALUE +"~" + MAX_VALUE + "입니다.");
         }
     }
+
+    public boolean hasSameValue(Number_ number) {
+        return number.hasSameValue(value);
+    }
+
+    public boolean hasSameValue(int anotherValue) {
+        return value == anotherValue;
+    }
 }
