@@ -28,4 +28,12 @@ public class Number_ {
     public boolean hasSameValue(int anotherValue) {
         return value == anotherValue;
     }
+
+    public boolean hasSamePosition(Number_ number) {
+        return number.hasSamePosition(position);
+    }
+
+    public boolean hasSamePosition(int anotherPosition) {
+        return position == anotherPosition;
+    }
 }
