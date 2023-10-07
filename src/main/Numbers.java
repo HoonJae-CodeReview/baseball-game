@@ -4,17 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class Numbers {
 
     public static final int LENGTH = 3;
 
-    private final List<Integer> numbers;
-    private final Map<Integer, Integer> numberCounts;
+    private final List<Number_> numbers;
 
-    public Numbers(List<Integer> values) {
-        numbers = values;
-        numberCounts = getNumberCountsFromArray(values);
+    public Numbers(List<Number_> numbers) {
+        this.numbers = numbers;
     }
 
     private HashMap<Integer, Integer> getNumberCountsFromArray(List<Integer> values) {
