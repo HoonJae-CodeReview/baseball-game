@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.validators.NumbersValidator;
 
 public class Numbers {
 
@@ -14,8 +13,6 @@ public class Numbers {
     private final Map<Integer, Integer> numberCounts;
 
     public Numbers(List<Integer> values) {
-        NumbersValidator.validateNumbersLength(values);
-        NumbersValidator.validateNumbersRange(values);
         numbers = values;
         numberCounts = getNumberCountsFromArray(values);
     }
