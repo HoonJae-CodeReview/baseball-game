@@ -18,7 +18,7 @@ public class NumbersUtils {
                 .toList();
     }
 
-    public static List<Integer> getRandomizedNumbers(int length) {
+    public static List<Integer> getRandomizedIntegerList(int length) {
         return Stream.generate(() -> new Random().nextInt(9) + 1)
                 .distinct()
                 .limit(length)

@@ -7,7 +7,7 @@ public final class StringUtils {
 
     private StringUtils() {}
 
-    public static List<Integer> parseToNumbers(String stringValue) {
+    public static List<Integer> parseToIntegers(String stringValue) {
         int length = stringValue.length();
         List<Integer> numbers = new ArrayList<>();
         for (int i=0; i<length; i++) {
