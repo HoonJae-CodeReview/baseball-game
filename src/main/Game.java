@@ -32,7 +32,7 @@ public class Game {
             Numbers numbers = tryToMakeNumbersByInput();
 
             Score score = numbers.getScore(answer);
-            int strikeCount = score.getStrikeCount();
+            int strikeCount = score.getSBO(SBO.STRIKE);
             if (strikeCount == Numbers.LENGTH) {
                 view.congratulate();
                 return;

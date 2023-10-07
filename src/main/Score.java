@@ -1,23 +1,16 @@
 package main;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Score {
-    private final int strikeCount, ballCount, outCount;
+    private Map<SBO, Integer> score = new HashMap<>();
 
-    public Score(int strikeCount, int ballCount, int outCount) {
-        this.strikeCount = strikeCount;
-        this.ballCount = ballCount;
-        this.outCount = outCount;
+    public void addSBO(SBO sbo) {
+        score.put(sbo, getSBO(sbo) + 1);
     }
 
-    public int getStrikeCount() {
-        return strikeCount;
-    }
-
-    public int getBallCount() {
-        return ballCount;
-    }
-
-    public int getOutCount() {
-        return outCount;
+    public int getSBO(SBO sbo) {
+        return score.getOrDefault(sbo, 0);
     }
 }
