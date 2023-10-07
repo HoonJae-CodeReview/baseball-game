@@ -36,4 +36,8 @@ public class Number_ {
     public boolean hasSamePosition(int anotherPosition) {
         return position == anotherPosition;
     }
+
+    public int getValue() {
+        return value;
+    }
 }

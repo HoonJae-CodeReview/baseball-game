@@ -2,6 +2,8 @@ package main;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Numbers {
 
@@ -11,6 +13,7 @@ public class Numbers {
 
     public Numbers(List<Number_> numbers) {
         validateNumbersLength(numbers);
+        validateNumbersDuplication(numbers);
         this.numbers = numbers;
     }
 
@@ -18,6 +21,18 @@ public class Numbers {
         int length = numbers.size();
         if (length != LENGTH) {
             throw new IllegalArgumentException(LENGTH + "개의 수가 주어져야 합니다.");
+        }
+    }
+
+    private void validateNumbersDuplication(List<Number_> numbers) {
+        Set<Integer> numbersSet = numbers.stream()
+                .map(number -> number.getValue())
+                .collect(Collectors.toSet());
+
+        int listSize = numbers.size();
+        int setSize = numbersSet.size();
+        if (listSize != setSize) {
+            throw new IllegalArgumentException("중복된 값은 허용되지 않습니다.");
         }
     }
 
