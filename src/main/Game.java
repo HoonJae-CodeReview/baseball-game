@@ -44,7 +44,8 @@ public class Game {
 
     private void randomizeAnswer() {
         int numberLength = Numbers.LENGTH;
-        List<Integer> randomizedNumbers = NumbersUtils.getRandomizedNumbers(numberLength);
+        List<Integer> randomizedIntegers = NumbersUtils.getRandomizedNumbers(numberLength);
+        List<Number_> randomizedNumbers = NumbersUtils.convertToNumberList(randomizedIntegers);
         answer = new Numbers(randomizedNumbers);
     }
 
@@ -52,7 +53,8 @@ public class Game {
         while (true) {
             view.requestNumber();
             String inputString = view.input();
-            List<Integer> inputNumbers = StringUtils.parseToNumbers(inputString);
+            List<Integer> inputIntegers = StringUtils.parseToNumbers(inputString);
+            List<Number_> inputNumbers = NumbersUtils.convertToNumberList(inputIntegers);
             try {
                 return new Numbers(inputNumbers);
             }

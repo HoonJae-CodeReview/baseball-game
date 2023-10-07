@@ -1,5 +1,6 @@
 package test;
 
+import main.utils.NumbersUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,8 +30,8 @@ public class GetScoreTest {
     @DisplayName("올바른 Strike의 수를 셀 수 있다.")
     void getStrikeCountTest(String numbersString1, String numbersString2, int expected){
         // given
-        Numbers numbers1 = new Numbers(getListOf(numbersString1));
-        Numbers numbers2 = new Numbers(getListOf(numbersString2));
+        Numbers numbers1 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString1)));
+        Numbers numbers2 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString2)));
 
         // when
         int strikeCount = numbers1.getCountOfSameNumberAtSameIndex(numbers2);
@@ -54,8 +55,8 @@ public class GetScoreTest {
     @DisplayName("올바른 Ball의 수를 셀 수 있다.")
     void getBallCountTest(String numbersString1, String numbersString2, int expected){
         // given
-        Numbers numbers1 = new Numbers(getListOf(numbersString1));
-        Numbers numbers2 = new Numbers(getListOf(numbersString2));
+        Numbers numbers1 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString1)));
+        Numbers numbers2 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString2)));
 
         // when
         int strikeCount = numbers1.getCountOfSameNumberAtSameIndex(numbers2);
