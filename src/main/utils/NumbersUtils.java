@@ -11,7 +11,7 @@ public class NumbersUtils {
     
     private NumbersUtils() {}
 
-    public static List<Number_> convertToNumberList(List<Integer> values) {
+    public static List<Number_> convertToNumberList(List<Integer> values) throws IllegalArgumentException {
         AtomicInteger position = new AtomicInteger(1);
         return values.stream()
                 .map(value -> new Number_(value, position.getAndIncrement()))

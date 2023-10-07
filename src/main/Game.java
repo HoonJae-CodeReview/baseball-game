@@ -54,8 +54,8 @@ public class Game {
             view.requestNumber();
             String inputString = view.input();
             List<Integer> inputIntegers = StringUtils.parseToIntegers(inputString);
-            List<Number_> inputNumbers = NumbersUtils.convertToNumberList(inputIntegers);
             try {
+                List<Number_> inputNumbers = NumbersUtils.convertToNumberList(inputIntegers);
                 return new Numbers(inputNumbers);
             }
             catch (Exception e) {

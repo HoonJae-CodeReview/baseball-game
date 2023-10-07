@@ -15,7 +15,7 @@ public class Number_ {
         this.position = position;
     }
 
-    private void validateValueRange(int value) {
+    private void validateValueRange(int value) throws IllegalArgumentException {
         if (value < MIN_VALUE || value > MAX_VALUE) {
             throw new IllegalArgumentException("올바른 숫자 값의 범위는 " + MIN_VALUE +"~" + MAX_VALUE + "입니다.");
         }

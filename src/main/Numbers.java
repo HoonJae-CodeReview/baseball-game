@@ -10,20 +10,20 @@ public class Numbers {
 
     private final List<Number_> numbers;
 
-    public Numbers(List<Number_> numbers) {
+    public Numbers(List<Number_> numbers) throws IllegalArgumentException {
         validateNumbersLength(numbers);
         validateNumbersDuplication(numbers);
         this.numbers = numbers;
     }
 
-    private void validateNumbersLength(List<Number_> numbers) {
+    private void validateNumbersLength(List<Number_> numbers) throws IllegalArgumentException {
         int length = numbers.size();
         if (length != LENGTH) {
             throw new IllegalArgumentException(LENGTH + "개의 수가 주어져야 합니다.");
         }
     }
 
-    private void validateNumbersDuplication(List<Number_> numbers) {
+    private void validateNumbersDuplication(List<Number_> numbers) throws IllegalArgumentException {
         Set<Integer> numbersSet = numbers.stream()
                 .map(number -> number.getValue())
                 .collect(Collectors.toSet());
