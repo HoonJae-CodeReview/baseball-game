@@ -1,6 +1,5 @@
 package main;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,15 +33,6 @@ public class Numbers {
         if (listSize != setSize) {
             throw new IllegalArgumentException("중복된 값은 허용되지 않습니다.");
         }
-    }
-
-    private HashMap<Integer, Integer> getNumberCountsFromArray(List<Integer> values) {
-        HashMap<Integer, Integer> balls = new HashMap<>();
-        for (int value : values){
-            int numberCountOfCurrentValue = balls.getOrDefault(value, 0);
-            balls.put(value, numberCountOfCurrentValue + 1);
-        }
-        return balls;
     }
 
     public Score getScore(Numbers answerNumbers) {
