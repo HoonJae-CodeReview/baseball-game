@@ -2,7 +2,6 @@ package main;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Numbers {
 
@@ -32,39 +31,32 @@ public class Numbers {
     }
 
     public Score getScore(Numbers answerNumbers) {
-        int strikeCount = getCountOfSameNumberAtSameIndex(answerNumbers);
-        int strikeOrBallCount = getCountOfSameNumberAtAnyWhere(answerNumbers);
-        int ballCount = strikeOrBallCount - strikeCount;
-        int outCount = LENGTH - strikeOrBallCount;
-        return new Score(strikeCount, ballCount, outCount);
+        Score score = new Score();
+
+        for (Number_ number : numbers) {
+            SBO sbo = answerNumbers.determineSBO(number);
+            score.addSBO(sbo);
+        }
+
+        return score;
     }
 
-    // Strike
-    public int getCountOfSameNumberAtSameIndex(Numbers anotherNumbers) {
-        int result = 0;
-        for (int i=0; i<LENGTH; i++) {
-            int number = numbers.get(i);
-            int anotherNumber = anotherNumbers.numbers.get(i);
-            if (number == anotherNumber) {
-                result++;
+    public SBO determineSBO(Number_ targetNumber) {
+
+        for (Number_ number : numbers) {
+
+            boolean hasSameValue = number.hasSameValue(targetNumber);
+            boolean hasSamePosition = number.hasSamePosition(targetNumber);
+
+            if (hasSameValue && hasSamePosition) {
+                return SBO.STRIKE;
+            }
+
+            if (hasSameValue && !hasSamePosition) {
+                return SBO.BALL;
             }
         }
-        return result;
-    }
 
-    // Ball or Strike
-    public int getCountOfSameNumberAtAnyWhere(Numbers anotherNumbers) {
-        int result = 0;
-        for (Map.Entry<Integer, Integer> numberCount : numberCounts.entrySet()) {
-            int number = numberCount.getKey();
-            int count = numberCount.getValue();
-            int anotherNumbersCurrentNumberCount = anotherNumbers.getCountOfNumber(number);
-            result += Math.min(count, anotherNumbersCurrentNumberCount);
-        }
-        return result;
-    }
-
-    public int getCountOfNumber(int number) {
-        return numberCounts.getOrDefault(number, 0);
+        return SBO.OUT;
     }
 }
