@@ -11,7 +11,15 @@ public class Numbers {
     private final List<Number_> numbers;
 
     public Numbers(List<Number_> numbers) {
+        validateNumbersLength(numbers);
         this.numbers = numbers;
+    }
+
+    private void validateNumbersLength(List<Number_> numbers) {
+        int length = numbers.size();
+        if (length != LENGTH) {
+            throw new IllegalArgumentException(LENGTH + "개의 수가 주어져야 합니다.");
+        }
     }
 
     private HashMap<Integer, Integer> getNumberCountsFromArray(List<Integer> values) {
