@@ -48,18 +48,19 @@ public class Numbers {
 
     public StrikeBallOut determineSBO(Number_ targetNumber) {
 
-        for (Number_ number : numbers) {
+        boolean isStrike = numbers.stream()
+                .filter(number -> number.hasSameValue(targetNumber))
+                .anyMatch(number -> number.hasSamePosition(targetNumber));
 
-            boolean hasSameValue = number.hasSameValue(targetNumber);
-            boolean hasSamePosition = number.hasSamePosition(targetNumber);
+        if (isStrike) {
+            return StrikeBallOut.STRIKE;
+        }
 
-            if (hasSameValue && hasSamePosition) {
-                return StrikeBallOut.STRIKE;
-            }
+        boolean isBall = numbers.stream()
+                .anyMatch(number -> number.hasSameValue(targetNumber));
 
-            if (hasSameValue && !hasSamePosition) {
-                return StrikeBallOut.BALL;
-            }
+        if (isBall) {
+            return StrikeBallOut.STRIKE;
         }
 
         return StrikeBallOut.OUT;
