@@ -7,6 +7,8 @@ import main.validators.ContinueOrExitValidator;
 
 import java.util.List;
 
+import static main.utils.NumbersUtils.getRandomizedNumbers;
+
 public class Game {
 
     private final View view;
@@ -44,9 +46,7 @@ public class Game {
 
     private void randomizeAnswer() {
         int numberLength = Numbers.LENGTH;
-        List<Integer> randomizedIntegers = NumbersUtils.getRandomizedIntegerList(numberLength);
-        List<Number_> randomizedNumbers = NumbersUtils.convertToNumberList(randomizedIntegers);
-        answer = new Numbers(randomizedNumbers);
+        answer = getRandomizedNumbers(numberLength);
     }
 
     private Numbers tryToMakeNumbersByInput() {
