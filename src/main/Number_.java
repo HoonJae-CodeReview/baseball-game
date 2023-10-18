@@ -9,13 +9,13 @@ public class Number_ {
     private final int value;
     private final int position;
 
-    public Number_(int value, int position) throws IllegalArgumentException {
+    public Number_(int value, int position) {
         validateValueRange(value);
         this.value = value;
         this.position = position;
     }
 
-    private void validateValueRange(int value) throws IllegalArgumentException {
+    private void validateValueRange(int value) {
         if (value < MIN_VALUE || value > MAX_VALUE) {
             throw new IllegalArgumentException("올바른 숫자 값의 범위는 " + MIN_VALUE +"~" + MAX_VALUE + "입니다.");
         }
