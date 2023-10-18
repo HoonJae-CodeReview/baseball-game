@@ -22,19 +22,11 @@ public class Number_ {
     }
 
     public boolean hasSameValue(Number_ number) {
-        return number.hasSameValue(value);
-    }
-
-    public boolean hasSameValue(int anotherValue) {
-        return value == anotherValue;
+        return value == number.value;
     }
 
     public boolean hasSamePosition(Number_ number) {
-        return number.hasSamePosition(position);
-    }
-
-    public boolean hasSamePosition(int anotherPosition) {
-        return position == anotherPosition;
+        return position == number.position;
     }
 
     public int getValue() {
