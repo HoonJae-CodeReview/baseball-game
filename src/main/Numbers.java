@@ -39,14 +39,14 @@ public class Numbers {
         Score score = new Score();
 
         for (Number_ number : numbers) {
-            StrikeBallOut strikeBallOut = answerNumbers.determineSBO(number);
+            StrikeBallOut strikeBallOut = answerNumbers.determineStrikeBallOut(number);
             score.addStrikeBallOut(strikeBallOut);
         }
 
         return score;
     }
 
-    public StrikeBallOut determineSBO(Number_ targetNumber) {
+    public StrikeBallOut determineStrikeBallOut(Number_ targetNumber) {
 
         boolean isStrike = numbers.stream()
                 .filter(number -> number.hasSameValue(targetNumber))
