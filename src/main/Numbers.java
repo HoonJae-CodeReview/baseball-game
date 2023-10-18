@@ -39,14 +39,14 @@ public class Numbers {
         Score score = new Score();
 
         for (Number_ number : numbers) {
-            SBO sbo = answerNumbers.determineSBO(number);
-            score.addSBO(sbo);
+            StrikeBallOut strikeBallOut = answerNumbers.determineSBO(number);
+            score.addStrikeBallOut(strikeBallOut);
         }
 
         return score;
     }
 
-    public SBO determineSBO(Number_ targetNumber) {
+    public StrikeBallOut determineSBO(Number_ targetNumber) {
 
         for (Number_ number : numbers) {
 
@@ -54,14 +54,14 @@ public class Numbers {
             boolean hasSamePosition = number.hasSamePosition(targetNumber);
 
             if (hasSameValue && hasSamePosition) {
-                return SBO.STRIKE;
+                return StrikeBallOut.STRIKE;
             }
 
             if (hasSameValue && !hasSamePosition) {
-                return SBO.BALL;
+                return StrikeBallOut.BALL;
             }
         }
 
-        return SBO.OUT;
+        return StrikeBallOut.OUT;
     }
 }

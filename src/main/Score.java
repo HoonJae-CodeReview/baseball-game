@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Score {
-    private Map<SBO, Integer> score = new HashMap<>();
+    private Map<StrikeBallOut, Integer> score = new HashMap<>();
 
-    public void addSBO(SBO sbo) {
-        score.put(sbo, getSBO(sbo) + 1);
+    public void addStrikeBallOut(StrikeBallOut strikeBallOut) {
+        score.put(strikeBallOut, getStrikeBallOut(strikeBallOut) + 1);
     }
 
-    public int getSBO(SBO sbo) {
-        return score.getOrDefault(sbo, 0);
+    public int getStrikeBallOut(StrikeBallOut strikeBallOut) {
+        return score.getOrDefault(strikeBallOut, 0);
     }
 }

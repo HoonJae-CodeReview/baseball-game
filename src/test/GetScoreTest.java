@@ -1,7 +1,7 @@
 package test;
 
 import main.Numbers;
-import main.SBO;
+import main.StrikeBallOut;
 import main.Score;
 import main.utils.NumbersUtils;
 import org.junit.jupiter.api.Assertions;
@@ -41,9 +41,9 @@ public class GetScoreTest {
 
         // when
         Score score = numbers2.getScore(numbers1);
-        int strikeCount = score.getSBO(SBO.STRIKE);
-        int ballCount = score.getSBO(SBO.BALL);
-        int outCount = score.getSBO(SBO.OUT);
+        int strikeCount = score.getStrikeBallOut(StrikeBallOut.STRIKE);
+        int ballCount = score.getStrikeBallOut(StrikeBallOut.BALL);
+        int outCount = score.getStrikeBallOut(StrikeBallOut.OUT);
 
         // then
         Assertions.assertEquals(expectedStrike, strikeCount);

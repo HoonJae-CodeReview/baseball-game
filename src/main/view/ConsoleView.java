@@ -1,7 +1,7 @@
 package main.view;
 
 import main.Numbers;
-import main.SBO;
+import main.StrikeBallOut;
 import main.Score;
 
 import java.io.BufferedReader;
@@ -40,9 +40,9 @@ public class ConsoleView implements View {
     @Override
     public void printScore(Score score) {
         StringBuilder stringBuilder = new StringBuilder();
-        int strikeCount = score.getSBO(SBO.STRIKE);
-        int ballCount = score.getSBO(SBO.BALL);
-        int outCount = score.getSBO(SBO.OUT);
+        int strikeCount = score.getStrikeBallOut(StrikeBallOut.STRIKE);
+        int ballCount = score.getStrikeBallOut(StrikeBallOut.BALL);
+        int outCount = score.getStrikeBallOut(StrikeBallOut.OUT);
         if (strikeCount > 0) {
             stringBuilder.append(strikeCount);
             stringBuilder.append("스트라이크 ");

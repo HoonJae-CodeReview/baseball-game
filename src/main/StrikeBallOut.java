@@ -1,5 +1,5 @@
 package main;
 
-public enum SBO {
+public enum StrikeBallOut {
     STRIKE, BALL, OUT
 }

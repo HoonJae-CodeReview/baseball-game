@@ -34,7 +34,7 @@ public class Game {
             Numbers numbers = tryToMakeNumbersByInput();
 
             Score score = numbers.getScore(answer);
-            int strikeCount = score.getSBO(SBO.STRIKE);
+            int strikeCount = score.getStrikeBallOut(StrikeBallOut.STRIKE);
             if (strikeCount == Numbers.LENGTH) {
                 view.congratulate();
                 return;
