@@ -14,8 +14,8 @@ public final class NumbersUtils {
 
     public static Numbers getRandomizedNumbers(int numberLength) {
         List<Integer> randomizedIntegers = NumbersUtils.getRandomizedIntegerList(numberLength);
-        List<Number_> randomizedNumbers = NumbersUtils.convertToNumberList(randomizedIntegers);
-        return new Numbers(randomizedNumbers);
+        Numbers randomizedNumbers = NumbersUtils.convertToNumbers(randomizedIntegers);
+        return randomizedNumbers;
     }
 
     private static List<Integer> getRandomizedIntegerList(int length) {
@@ -25,10 +25,12 @@ public final class NumbersUtils {
                 .toList();
     }
 
-    public static List<Number_> convertToNumberList(List<Integer> values) {
+    public static Numbers convertToNumbers(List<Integer> values) {
         AtomicInteger position = new AtomicInteger(1);
-        return values.stream()
+        List<Number_> numbers = values.stream()
                 .map(value -> new Number_(value, position.getAndIncrement()))
                 .toList();
+
+        return new Numbers(numbers);
     }
 }

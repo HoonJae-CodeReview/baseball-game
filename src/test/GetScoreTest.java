@@ -36,8 +36,8 @@ public class GetScoreTest {
             int expectedOut
     ){
         // given
-        Numbers numbers1 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString1)));
-        Numbers numbers2 = new Numbers(NumbersUtils.convertToNumberList(getListOf(numbersString2)));
+        Numbers numbers1 = NumbersUtils.convertToNumbers(getListOf(numbersString1));
+        Numbers numbers2 = NumbersUtils.convertToNumbers(getListOf(numbersString2));
 
         // when
         Score score = numbers2.getScore(numbers1);
