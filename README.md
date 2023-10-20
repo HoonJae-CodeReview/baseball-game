@@ -1,4 +1,4 @@
-# baseball-game
+# [baseball-game](https://github.com/HoonJae-CodeReview/baseball-game/pull/1)
 
 ## 기능 요구 사항
 기본적으로 1부터 9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 게임이다.
